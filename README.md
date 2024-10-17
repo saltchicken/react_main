@@ -1,0 +1,3 @@
+Create a .env file
+
+VITE_GOOGLE_CLIENT_ID=<your_google_client_id>
