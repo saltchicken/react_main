@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "@oak/oak": "jsr:@oak/oak@^17.0.0",
+    "@tajpouria/cors": "jsr:@tajpouria/cors@^1.2.1",
+    "react-router-dom": "npm:react-router-dom@^6.26.2",
+    "js-cookie": "npm:js-cookie@^3.0.5"
+  }
+}
