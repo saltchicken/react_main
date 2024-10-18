@@ -8,7 +8,7 @@ async function handleRequest(request: Request): Promise<Response> {
   console.log(method);
   console.log(url);
 
-  if (method === "GET" && url === "http://10.0.0.3:8000/data") {
+  if (method === "GET" && url === "https://eicherdev.duckdns.org:5443/data") {
     // Simulate some data, for example, querying from a database
     const data = { message: "Hello, world!" };
 
