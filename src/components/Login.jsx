@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 export default function Login() {
   const navigate = useNavigate();
   const [isLoggedin, setIsLoggedin] = useState(false);
+  const [data, setData] = useState([]);
 
   console.log(`${window.location.origin}`);
   const handleClick = () => {
@@ -15,6 +16,17 @@ export default function Login() {
     )}&response_type=token&client_id=${googleClientId}&scope=openid%20email%20profile`;
     window.location.href = targetUrl;
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("http://localhost:5000/api/data");
+      // const result = await response.json();
+      const result = await response;
+
+      setData(result);
+    };
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const accessTokenRegex = /access_token=([^&]+)/;
