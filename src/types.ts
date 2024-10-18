@@ -1,1 +1,1 @@
-export type Dino = { name: string; description: string };
+export type Connection = { ip: string; latitude: number; longitude: number };
