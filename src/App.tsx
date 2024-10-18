@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Index />} /> */}
+        <Route path="/index" element={<Index />} />
         <Route path="/:selectedDinosaur" element={<Dinosaur />} />
         <Route path="/" element={<Login />} />
         <Route path="/secure" element={<Secure />} />
