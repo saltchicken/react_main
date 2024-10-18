@@ -1,6 +1,5 @@
 import { Application, Router } from "@oak/oak";
 import { oakCors } from "@tajpouria/cors";
-import data from "./data.json" with { type: "json" };
 import routeStaticFilesFrom from "./util/routeStaticFilesFrom.ts";
 import { Client } from "https://deno.land/x/postgres@v0.17.0/mod.ts";
 import "https://deno.land/std@0.215.0/dotenv/load.ts";
@@ -16,11 +15,11 @@ const client = new Client({
 });
 
 router.get("/api/dinosaurs", async (context) => {
-  console.log("hello");
   const result = await client.queryArray("SELECT * FROM trak_dev.connections");
-  console.log(result);
+  // console.log(result);
+  const jsonResult = JSON.stringify(result.rows);
 
-  context.response.body = data;
+  context.response.body = jsonResult;
 });
 
 router.get("/api/dinosaurs/:dinosaur", (context) => {
