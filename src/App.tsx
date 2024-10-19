@@ -1,9 +1,10 @@
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Index from "./pages/index";
-import Connection from "./pages/Connection";
-import Login from "./components/Login";
-import Secure from "./components/Secure";
-import PrivateRoute from "./components/PrivateRoute";
+import Index from "./pages/index.tsx";
+import Connection from "./pages/Connection.tsx";
+import Login from "./components/Login.jsx";
+import Secure from "./components/Secure.jsx";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 import "./App.css";
 
 function App() {
