@@ -5,6 +5,7 @@ import Connection from "./pages/Connection.tsx";
 import Login from "./components/Login.jsx";
 import Secure from "./components/Secure.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
+import NotFound from "./pages/NotFound.tsx";
 import "./App.css";
 
 function App() {
@@ -15,15 +16,28 @@ function App() {
         <Route path="/login" element={<Login />} />
 
         {/* Private Routes */}
-        {/* <Route path="/index" element={<Index />} /> */}
         <Route
-          path="/"
+          path="/*"
           element={
             <PrivateRoute>
-              <Index />
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/secure" element={<Secure />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
             </PrivateRoute>
           }
         />
+
+        {/* <Route path="/index" element={<Index />} /> */}
+        {/* <Route */}
+        {/*   path="/" */}
+        {/*   element={ */}
+        {/*     <PrivateRoute> */}
+        {/*       <Index /> */}
+        {/*     </PrivateRoute> */}
+        {/*   } */}
+        {/* /> */}
         {/* <Route path="/:selectedConnection" element={<Connection />} /> */}
         {/* <Route path="/secure" element={<Secure />} /> */}
       </Routes>
