@@ -17,7 +17,7 @@ export default function Index() {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch(`/api/dinosaurs/`);
+      const response = await fetch(`/api/connections/`);
       const allConnections = (await response.json()) as Connection[];
       setConnections(allConnections);
     })();
@@ -25,9 +25,8 @@ export default function Index() {
 
   return (
     <main>
-      <h1>Welcome to the Dinosaur app</h1>
-      <p>Click ON a dinosaur below to learn more.</p>
-      <p></p>
+      <h1>Welcome</h1>
+      <p>One does not simply visit random websites on the internet.</p>
       {connections.map((connection: Connection) => {
         return <p key={connection.ip}>{connection.ip}</p>;
       })}
@@ -45,7 +44,7 @@ export default function Index() {
       {/*     <Link */}
       {/*       to={`/${connection.ip.toLowerCase()}`} */}
       {/*       key={connection.ip} */}
-      {/*       className="dinosaur" */}
+      {/*       className="connection" */}
       {/*     > */}
       {/*       {connection.ip} */}
       {/*     </Link> */}

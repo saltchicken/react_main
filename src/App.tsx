@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Index from "./pages/index";
-import Dinosaur from "./pages/Dinosaur";
+import Connection from "./pages/Connection";
 import Login from "./components/Login";
 import Secure from "./components/Secure";
 import "./App.css";
@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/index" element={<Index />} />
-        <Route path="/:selectedDinosaur" element={<Dinosaur />} />
+        <Route path="/:selectedConnection" element={<Connection />} />
         <Route path="/" element={<Login />} />
         <Route path="/secure" element={<Secure />} />
       </Routes>

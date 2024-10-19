@@ -15,7 +15,7 @@ const client = new Client({
   port: 5432,
 });
 
-router.get("/api/dinosaurs", async (context) => {
+router.get("/api/connections", async (context) => {
   const result = await client.queryArray(
     "SELECT ip, latitude, longitude FROM trak_dev.connections",
   );
@@ -25,23 +25,22 @@ router.get("/api/dinosaurs", async (context) => {
     latitude: row[1],
     longitude: row[2],
   }));
-  // console.log(newResult);
-  // const jsonResult = JSON.stringify(result.rows);
-  console.log(jsonResult);
 
   context.response.body = jsonResult;
 });
 
-router.get("/api/dinosaurs/:dinosaur", (context) => {
-  if (!context?.params?.dinosaur) {
-    context.response.body = "No dinosaur name provided.";
+router.get("/api/connections/:connection", (context) => {
+  if (!context?.params?.connection) {
+    context.response.body = "This connection does not exist.";
   }
 
-  const dinosaur = data.find(
-    (item) => item.name.toLowerCase() === context.params.dinosaur.toLowerCase(),
-  );
+  // // #TODO: Implement checking if connection is in database
+  // const connection = data.find(
+  //   (item) => item.ip.toLowerCase() === context.params.connection.toLowerCase(),
+  // );
 
-  context.response.body = dinosaur ? dinosaur : "No dinosaur found.";
+  // context.response.body = connection ? connection : "No connection found.";
+  context.response.body = "Not implemented yet";
 });
 
 const app = new Application();
