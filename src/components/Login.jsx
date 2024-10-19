@@ -16,18 +16,17 @@ export default function Login() {
   };
 
   useEffect(() => {
-    if (Cookies.get("access_token")) {
-      navigate("/");
-    }
-  }, [navigate]);
-
-  useEffect(() => {
     const accessTokenRegex = /access_token=([^&]+)/;
     const isMatch = globalThis.location.href.match(accessTokenRegex);
 
     if (isMatch) {
       const accessToken = isMatch[1];
       Cookies.set("access_token", accessToken);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (Cookies.get("access_token")) {
       navigate("/");
     }
   }, [navigate]);
