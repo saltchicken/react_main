@@ -6,9 +6,9 @@ export default function Login() {
   const navigate = useNavigate();
   const [isLoggedin, setIsLoggedin] = useState(false);
 
-  console.log(`${window.location.origin}`);
   const handleClick = () => {
-    const callbackUrl = `${window.location.origin}`;
+    // const callbackUrl = `${window.location.origin}`;
+    const callbackUrl = `${window.location.origin}/login`;
     const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
     const targetUrl = `https://accounts.google.com/o/oauth2/auth?redirect_uri=${encodeURIComponent(
       callbackUrl,
@@ -29,7 +29,7 @@ export default function Login() {
 
   useEffect(() => {
     if (isLoggedin) {
-      navigate("/secure");
+      navigate("/");
     }
   }, [isLoggedin, navigate]);
 
