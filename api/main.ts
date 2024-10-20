@@ -2,7 +2,6 @@ import { Application, Router } from "@oak/oak";
 import { oakCors } from "@tajpouria/cors";
 import routeStaticFilesFrom from "./util/routeStaticFilesFrom.ts";
 import { Client } from "https://deno.land/x/postgres@v0.17.0/mod.ts";
-// import { Client } from "https://deno.land/x/pg@v0.6.1/mod.ts";
 import "https://deno.land/std@0.215.0/dotenv/load.ts";
 
 const router = new Router();
