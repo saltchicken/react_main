@@ -25,7 +25,7 @@ export default function Index() {
 
   return (
     <main>
-      <h1 class="text-4xl font-bold text-blue-500">Welcome</h1>
+      <h1 className="text-4xl font-bold text-blue-500">Welcome</h1>
       <p>One does not simply visit random websites on the internet.</p>
       {connections.map((connection: Connection) => {
         return <p key={connection.ip}>{connection.ip}</p>;
