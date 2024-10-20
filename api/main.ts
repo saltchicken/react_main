@@ -16,7 +16,7 @@ const client = new Client({
 
 router.get("/api/connections", async (context) => {
   const result = await client.queryArray(
-    "SELECT ip, latitude, longitude FROM trak_dev.connections",
+    `SELECT ip, latitude, longitude FROM ${Deno.env.get("VITE_CONNECTIONS_TABLE")}`,
   );
   // console.log(result.rows);
   const jsonResult = result.rows.map((row) => ({
