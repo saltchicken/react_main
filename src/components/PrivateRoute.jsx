@@ -10,11 +10,16 @@ const PrivateRoute = ({ children }) => {
   useEffect(() => {
     (async () => {
       const accessToken = Cookies.get("access_token");
+      const decodedAccessToken = await fetch(
+        `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${accessToken}`,
+      );
+      const data = await decodedAccessToken.json();
+      const sub = data.id;
       if (!accessToken) {
         navigate("/login");
         // return <Navigate to="/login" />;
       }
-      const response = await fetch(`/api/auth/`);
+      const response = await fetch(`/api/auth/${sub}`);
       const responseJSON = await response.json();
 
       if (responseJSON) {
@@ -33,7 +38,6 @@ const PrivateRoute = ({ children }) => {
 
   if (!isAuthenticated) {
     // navigate("/login");
-    console.log("hello there");
     return <div>Not authenticated...</div>;
     // return <Navigate to="/login" />;
   }
