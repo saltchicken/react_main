@@ -14,15 +14,13 @@ const client = new Client({
   port: 5432,
 });
 
-router.get("/api/auth", async (context) => {
-  // const sub = context?.params?.sub;
-  // const regex = /^\d+$/;
-  // if (regex.test(sub)) {
-  // TODO: FIX THIS
-  const sub = "1234";
-  if (sub) {
+router.get("/api/auth/:sub", async (context) => {
+  const sub = context?.params?.sub;
+  console.log(sub);
+  const regex = /^\d+$/;
+  if (regex.test(sub)) {
     const result = await client.queryArray(
-      `SELECT sub FROM ${Deno.env.get("VITE_USERS_TABLE")} WHERE sub = ${sub}`,
+      `SELECT sub FROM ${Deno.env.get("VITE_USERS_TABLE")} WHERE sub = '${sub}'`,
     );
     context.response.body = result.rows.length > 0;
   } else {
